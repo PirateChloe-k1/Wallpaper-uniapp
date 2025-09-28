@@ -13,10 +13,37 @@
 			autoplay
 			circular
 			>
-				<swiper-item v-for="item in 3">
+				<swiper-item>
 					<image src="/common/images/banner1.jpg" mode="aspectFill"></image>
 				</swiper-item>
+				<swiper-item>
+					<image src="/common/images/banner2.jpg" mode="aspectFill"></image>
+				</swiper-item>
+				<swiper-item>
+					<image src="/common/images/banner3.jpg" mode="aspectFill"></image>
+				</swiper-item>
 			</swiper>
+		</view>
+		
+		<!-- 公告部分 -->
+		<view class="notice">
+			<view class="left">
+				<uni-icons type="sound-filled" size="20" color="#28b389"></uni-icons>
+				<text class=text>公告</text>
+			</view>
+			<view class="center">
+				<!-- vertical轮播方向为纵向 -->
+				<!-- autoplay自动播放 -->
+				<!-- interval自动播放的时间间隔 -->
+				<!-- duration轮播切换的动画时长 -->
+				<!-- circular无限循环轮播 -->
+				<swiper vertical autoplay interval="1500" duration="300" circular>
+					<swiper-item v-for="item in 4">文字内容文字内容文字内容文字内容文字内容文字内容</swiper-item>
+				</swiper>
+			</view>
+			<view class="right">
+				<uni-icons type="right" size="16" color="#333"></uni-icons>
+			</view>
 		</view>
 	</view>
 </template>
@@ -47,6 +74,47 @@
 					border-radius: 10rpx;
 				}
 			}
+		}
+	}
+	.notice{
+		width: 690rpx;
+		height: 80rpx;
+		line-height: 80rpx;
+		background: #f9f9f9;
+		margin: 0 auto;
+		border-radius: 80rpx;
+		display: flex;
+		.left{
+			width: 140rpx;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.text{
+				color: #28b389;
+				font-weight: 600;
+				font-size: 28rpc;
+			}
+		}
+		// flex: 1让元素自适应填充父容器的剩余空间 并且在空间变化时（如窗口缩放）能灵活伸缩
+		.center{
+			flex: 1;
+			swiper{
+				height: 100%;
+				&-item{
+					height: 100%;
+					font-size: 30rpx;
+					color: #666;
+					// 隐藏溢出内容
+					overflow: hidden;
+					// 文本强制一行显示
+					white-space: nowrap;
+					// 溢出部分用...提示
+					text-overflow: ellipsis;
+				}
+			}
+		}
+		.right{
+			width: 70rpx;
 		}
 	}
 }
